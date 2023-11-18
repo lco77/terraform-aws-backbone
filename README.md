@@ -1,4 +1,4 @@
-# terraform-modules-aws-multiregion-network
+# terraform-modules-aws-backbone
 Terraform modules to create an enterprise backbone network on AWS using TGW, Cisco SDWAN, Infoblox / Route53 hybrid DNS and centralized Palo Alto firewall inspection.
 
 
