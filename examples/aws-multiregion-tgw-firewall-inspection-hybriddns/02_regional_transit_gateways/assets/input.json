@@ -1,0 +1,44 @@
+{
+    "euw1": {
+        "asn": "65100",
+        "cidr": "10.100.0.0/24",
+        "region": "euw1",
+        "account": "1234567890",
+        "name": "transit",
+        "environment": "prd",
+        "release": "001",
+        "transit_attach": ["use1"],
+        "transit_accept": [],
+        "transit_domain_ipv4": ["10.100.0.0/16"],
+        "transit_tables": ["spoke","inspect"],
+        "transit_peering_association": "spoke",
+        "transit_peering_propagation": "inspect",
+        "blackholes":{
+            "inspect": "0.0.0.0/0"
+        },
+        "transit_routes": {
+            "use1": ["10.200.0.0/16"]
+        }
+    },
+    "use1": {
+        "asn": "65200",
+        "cidr": "10.200.0.0/24",
+        "region": "use1",
+        "account": "1234567890",
+        "name": "transit",
+        "environment": "prd",
+        "release": "001",
+        "transit_attach": [],
+        "transit_accept": ["euw1"],
+        "transit_domain_ipv4": ["10.200.0.0/16"],
+        "transit_tables": ["spoke","inspect"],
+        "transit_peering_association": "spoke",
+        "transit_peering_propagation": "inspect",
+        "blackholes":{
+            "inspect": "0.0.0.0/0"
+        },
+        "transit_routes": {
+            "euw1": ["10.100.0.0/16"]
+        }
+    }
+}

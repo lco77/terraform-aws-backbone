@@ -1,0 +1,178 @@
+{
+    "euw1": {
+        "region": "euw1",
+        "account": "1234567890",
+        "name": "sdwan",
+        "environment": "prd",
+        "release": "001",
+        "cidr": "10.100.1.0/24",
+        "create": true,
+        "dual_stack": true,
+        "log": true,
+        "appliance": {
+            "bgp_asn": "65101",
+            "instance_type": "c5n.large",
+            "ami_filter": {
+                "owner-alias": ["aws-marketplace"],
+                "name": ["Cisco-C8K-17.06.04*"],
+                "product-code": ["3ycwqehancx46bkpb3xkifiz5"]
+            },
+            "ssh_key": "my_key",
+            "public_whitelist": {
+                "vmanage":  "1.2.3.4/32",
+                "vbond-1":  "5.6.7.8/32",
+                "vsmart-1": "9.0.1.2/32"
+            },
+            "template_values": [
+                {
+                    "device_token": "1234",
+                    "device_uuid": "C8K-XXX",
+                    "device_template": "TEMPLATE",
+                    "vbond_address": "vbond.viptela.net",
+                    "org_id": "COMPANY",
+                    "system_ip": "10.100.1.253",
+                    "site_id": "100",
+                    "hostname": "EUW1-ROUTER-A",
+                    "password9": "encrypted_password",
+                    "dns_server": "8.8.8.8 8.8.4.4"
+                },
+                {
+                    "device_token": "1234",
+                    "device_uuid": "C8K-XXX",
+                    "device_template": "TEMPLATE",
+                    "vbond_address": "vbond.viptela.net",
+                    "org_id": "COMPANY",
+                    "system_ip": "10.100.1.254",
+                    "site_id": "100",
+                    "hostname": "EUW1-ROUTER-B",
+                    "password9": "encrypted_password",
+                    "dns_server": "8.8.8.8 8.8.4.4"
+                }
+            ]
+        },
+        "public": {
+            "cidr": [
+                "10.100.1.0/28",
+                "10.100.1.16/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ]
+        },
+        "private": {
+            "cidr": [
+                "10.100.1.32/28",
+                "10.100.1.48/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "tunnel_cidr": [
+                "169.254.100.0/29",
+                "169.254.100.8/29"
+            ]
+        },
+        "transit": {
+            "cidr": [
+                "10.100.1.64/28",
+                "10.100.1.80/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "associate": "spoke",
+            "propagate": ["inspect"]
+        }
+    },
+    "use1": {
+        "region": "use1",
+        "account": "1234567890",
+        "name": "sdwan",
+        "environment": "prd",
+        "release": "001",
+        "cidr": "10.200.1.0/24",
+        "create": true,
+        "dual_stack": true,
+        "log": true,
+        "appliance": {
+            "bgp_asn": "65201",
+            "instance_type": "c5n.large",
+            "ami_filter": {
+                "owner-alias": ["aws-marketplace"],
+                "name": ["Cisco-C8K-17.06.04*"],
+                "product-code": ["3ycwqehancx46bkpb3xkifiz5"]
+            },
+            "ssh_key": "my_key",
+            "public_whitelist": {
+                "vmanage":  "1.2.3.4/32",
+                "vbond-1":  "5.6.7.8/32",
+                "vsmart-1": "9.0.1.2/32"
+            },
+            "template_values": [
+                {
+                    "device_token": "1234",
+                    "device_uuid": "C8K-XXX",
+                    "device_template": "TEMPLATE",
+                    "vbond_address": "vbond.viptela.net",
+                    "org_id": "COMPANY",
+                    "system_ip": "10.200.1.253",
+                    "site_id": "100",
+                    "hostname": "USE1-ROUTER-A",
+                    "password9": "encrypted_password",
+                    "dns_server": "8.8.8.8 8.8.4.4"
+                },
+                {
+                    "device_token": "1234",
+                    "device_uuid": "C8K-XXX",
+                    "device_template": "TEMPLATE",
+                    "vbond_address": "vbond.viptela.net",
+                    "org_id": "COMPANY",
+                    "system_ip": "10.200.1.254",
+                    "site_id": "100",
+                    "hostname": "USE1-ROUTER-B",
+                    "password9": "encrypted_password",
+                    "dns_server": "8.8.8.8 8.8.4.4"
+                }
+            ]
+        },
+        "public": {
+            "cidr": [
+                "10.200.1.0/28",
+                "10.200.1.16/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ]
+        },
+        "private": {
+            "cidr": [
+                "10.200.1.32/28",
+                "10.200.1.48/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "tunnel_cidr": [
+                "169.254.100.0/29",
+                "169.254.100.8/29"
+            ]
+        },
+        "transit": {
+            "cidr": [
+                "10.200.1.64/28",
+                "10.200.1.80/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "associate": "spoke",
+            "propagate": ["inspect"]
+        }
+    }
+}

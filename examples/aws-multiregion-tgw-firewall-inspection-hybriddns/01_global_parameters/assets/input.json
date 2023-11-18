@@ -1,0 +1,129 @@
+{
+    "aws_tags": {
+        "CostCenter": "1234",
+        "Application": "network",
+        "Environment": "prod"
+    },
+    "map_resource_prefixes": {
+        "aws_vpc": "vpc",
+        "aws_vpc_dhcp_options": "dhcp",
+        "aws_internet_gateway": "igw",
+        "aws_nat_gateway": "ngw",
+        "aws_customer_gateway": "cgw",
+        "aws_egress_only_internet_gateway": "egw",
+        "aws_ec2_transit_gateway": "tgw",
+        "aws_ec2_transit_gateway_route_table": "tgw-rtb",
+        "aws_ec2_transit_gateway_vpc_attachment": "tgw-attach",
+        "aws_ec2_transit_gateway_vpc_attachment_accepter": "tgw-accept",
+        "aws_ec2_transit_gateway_peering_attachment": "tgw-peering",
+        "aws_ec2_transit_gateway_peering_attachment_accepter": "tgw-accept",
+        "aws_ec2_transit_gateway_connect": "tgw-connect",
+        "aws_ec2_transit_gateway_connect_peer": "tgw-connect-peer",
+        "aws_ec2_managed_prefix_list_ipv4": "pl4",
+        "aws_ec2_managed_prefix_list_ipv6": "pl6",
+        "aws_subnet": "net",
+        "aws_route_table": "rtb",
+        "aws_vpc_endpoint": "vpce",
+        "aws_vpc_endpoint_service": "vpce-svc",
+        "aws_alb": "alb",
+        "aws_nlb": "nlb",
+        "aws_glb": "glb",
+        "aws_security_group": "sg",
+        "aws_vpc_security_group_ingress_rule": "sgr",
+        "aws_vpc_security_group_egress_rule": "sgr",
+        "aws_lb_target_group": "tg",
+        "aws_lb_listener": "listener",
+        "aws_network_interface": "eni",
+        "aws_eip": "eip",
+        "aws_ebs_volume": "ebs",
+        "aws_instance": "i",
+        "aws_ram_resource_share": "ram",
+        "aws_iam_role": "role",
+        "aws_iam_policy": "policy",
+        "aws_iam_instance_profile": "profile",
+        "aws_route53_resolver_endpoint": "vpce",
+        "aws_route53_resolver_rule_forward": "fwd",
+        "aws_route53_resolver_rule_system": "sys"
+    },
+    "map_code_to_region": {
+        "euw1": "eu-west-1",
+        "use1": "us-east-1"
+    },
+    "map_region_to_code": {
+        "eu-west-1": "euw1",
+        "us-east-1": "use1"
+    },
+    "map_account_to_region": {
+        "1234567890": {
+            "zone": "internal",
+            "name": "network-account",
+            "role": "role-network-automation",
+            "regions": ["use1","euw1"]
+        },
+        "0987654321": {
+            "zone": "internal",
+            "name": "app-account",
+            "role": "role-network-automation",
+            "regions": ["use1","euw1"]
+        },
+        "4567891230": {
+            "zone": "external",
+            "name": "partner-account",
+            "role": "role-network-automation",
+            "regions": ["euw1"]
+        }
+    },
+    "ipv4_prefixes": {
+        "internet": {
+            "default": "0.0.0.0/0"
+        },
+        "rfc6598": {
+            "cg-nat": "100.64.0.0/10"
+        },
+        "rfc1122": {
+            "loopback": "127.0.0.0/8"
+        },
+        "rfc3927": {
+            "link-local": "169.254.0.0/16"
+        },
+        "rfc5737": {
+            "test-1": "192.0.0.0/24",
+            "test-2": "198.51.100.0/24",
+            "test-3": "203.0.113.0/24"
+        },
+        "rfc7535": {
+            "as112-v4": "192.31.196.0/24"
+        },
+        "rfc7450": {
+            "amt": "192.52.193.0/24"
+        },
+        "rfc3068": {
+            "6to4-anycast": "192.88.99.0/24"
+        },
+        "rfc7534": {
+            "as112-delegation": "192.175.48.0/24"
+        },
+        "rfc2544": {
+            "benchmark": "198.18.0.0/15"
+        },
+        "rfc1112": {
+            "reserved": "240.0.0.0/4"
+        },
+        "rfc6890": {
+            "private-use": "192.0.0.0/24"
+        },
+        "rfc1918": {
+            "classA": "10.0.0.0/8",
+            "classB": "172.16.0.0/12",
+            "classC": "192.168.0.0/16"
+        }
+    },
+    "ipv6_prefixes": {
+        "internet": {
+            "default": "::/0"
+        }
+    },
+    "ssh_keys": {
+        "my_key": "ssh-rsa abcd123456789 no-reply@company.com"
+    }
+}

@@ -1,0 +1,202 @@
+{
+    "euw1": {
+        "region": "euw1",
+        "account": "1234567890",
+        "name": "inspect",
+        "environment": "prd",
+        "release": "001",
+        "cidr": "10.100.2.0/24",
+        "create": true,
+        "dual_stack": true,
+        "log": true,
+        "advertise_transit_routes": {
+            "spoke": [
+                "0.0.0.0/0",
+                "10.100.0.0/16"
+            ]
+        },
+        "appliance": {
+            "instance_type": "m5.xlarge",
+            "ami_filter": {
+                "owner-alias": ["aws-marketplace"],
+                "name": ["PA-VM-AWS-10.2.2-h2*"],
+                "product-code": ["6njl1pau431dv1qxipg63mvah"]
+            },
+            "ssh_key": "my_key",
+            "template_values": [
+                {
+                    "hostname": "EUW1-FIREWALL-A",
+                    "tplname":"EUW1-FIREWALL-A_STACK",
+                    "dgname":"AWS",
+                    "panorama-server": "1.2.3.4",
+                    "panorama-server-2": "",
+                    "vm-auth-key": "1234",
+                    "authcodes": "1234",
+                    "dns-primary": "169.254.169.253",
+                    "dns-secondary": "",
+                    "op-command-modes": "",
+                    "plugin-op-commands": "aws-gwlb-inspect:enable,aws-gwlb-overlay-routing:enable"
+                },{
+                    "hostname": "EUW1-FIREWALL-B",
+                    "tplname":"EUW1-FIREWALL-B_STACK",
+                    "dgname":"AWS",
+                    "panorama-server": "1.2.3.4",
+                    "panorama-server-2": "",
+                    "vm-auth-key": "1234",
+                    "authcodes": "1234",
+                    "dns-primary": "169.254.169.253",
+                    "dns-secondary": "",
+                    "op-command-modes": "",
+                    "plugin-op-commands": "aws-gwlb-inspect:enable,aws-gwlb-overlay-routing:enable"
+                }
+            ]
+        },
+        "public": {
+            "cidr": [
+                "10.100.2.0/28",
+                "10.100.2.16/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ]
+        },
+        "private": {
+            "cidr": [
+                "10.100.2.32/28",
+                "10.100.2.48/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "gwlb_enabled": [
+                true,
+                true
+            ]
+        },
+        "management": {
+            "cidr": [
+                "10.100.2.64/28",
+                "10.100.2.80/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "dia": true
+        },        
+        "transit": {
+            "cidr": [
+                "10.100.2.96/28",
+                "10.100.2.112/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "associate": "inspect",
+            "propagate": []
+        }
+    },
+    "use1": {
+        "region": "use1",
+        "account": "1234567890",
+        "name": "inspect",
+        "environment": "prd",
+        "release": "001",
+        "cidr": "10.200.2.0/24",
+        "create": true,
+        "dual_stack": true,
+        "log": true,
+        "advertise_transit_routes": {
+            "spoke": [
+                "0.0.0.0/0",
+                "10.200.0.0/16"
+            ]
+        },
+        "appliance": {
+            "instance_type": "m5.xlarge",
+            "ami_filter": {
+                "owner-alias": ["aws-marketplace"],
+                "name": ["PA-VM-AWS-10.2.2-h2*"],
+                "product-code": ["6njl1pau431dv1qxipg63mvah"]
+            },
+            "ssh_key": "my_key",
+            "template_values": [
+                {
+                    "hostname": "USE1-FIREWALL-A",
+                    "tplname":"USE1-FIREWALL-A_STACK",
+                    "dgname":"AWS",
+                    "panorama-server": "1.2.3.4",
+                    "panorama-server-2": "",
+                    "vm-auth-key": "1234",
+                    "authcodes": "1234",
+                    "dns-primary": "169.254.169.253",
+                    "dns-secondary": "",
+                    "op-command-modes": "",
+                    "plugin-op-commands": "aws-gwlb-inspect:enable,aws-gwlb-overlay-routing:enable"
+                },{
+                    "hostname": "USE1-FIREWALL-A",
+                    "tplname":"USE1-FIREWALL-A_STACK",
+                    "dgname":"AWS",
+                    "panorama-server": "1.2.3.4",
+                    "panorama-server-2": "",
+                    "vm-auth-key": "1234",
+                    "authcodes": "1234",
+                    "dns-primary": "169.254.169.253",
+                    "dns-secondary": "",
+                    "op-command-modes": "",
+                    "plugin-op-commands": "aws-gwlb-inspect:enable,aws-gwlb-overlay-routing:enable"
+                }
+            ]
+        },
+        "public": {
+            "cidr": [
+                "10.200.2.0/28",
+                "10.200.2.16/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ]
+        },
+        "private": {
+            "cidr": [
+                "10.200.2.32/28",
+                "10.200.2.48/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "gwlb_enabled": [
+                true,
+                true
+            ]
+        },
+        "management": {
+            "cidr": [
+                "10.200.2.64/28",
+                "10.200.2.80/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "dia": true
+        },  
+        "transit": {
+            "cidr": [
+                "10.200.2.96/28",
+                "10.200.2.112/28"
+            ],
+            "az": [
+                "a",
+                "b"
+            ],
+            "associate": "inspect",
+            "propagate": []
+        }
+    }
+}

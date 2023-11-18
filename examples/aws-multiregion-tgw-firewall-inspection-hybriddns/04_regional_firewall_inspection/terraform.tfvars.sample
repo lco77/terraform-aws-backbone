@@ -1,0 +1,4 @@
+repository_name = "04_regional_firewall_inspection"
+repository_uri  = "codecommit::eu-west-1://04_regional_firewall_inspection"
+input_file      = "assets/input.json"
+ssm_path        = "/network"

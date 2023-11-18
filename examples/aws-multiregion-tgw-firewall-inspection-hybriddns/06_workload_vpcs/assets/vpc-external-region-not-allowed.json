@@ -1,0 +1,58 @@
+{
+    "tags": {},
+    "region": "use1",
+    "account": "4567891230",
+    "name": "vpc-external-3",
+    "environment": "prd",
+    "release": "001",
+    "cidr": "10.200.101.0/24",
+    "custom_dns": {
+        "domain": "domain.onprem",
+        "forwarders": ["onprem_dns1_ip","onprem_dns2_ip"],
+        "forward_zones": ["domain.onprem","10.in-addr.arpa"],
+        "system_zones": ["100.10.in-addr.arpa","200.10.in-addr.arpa"]
+    },
+    "create": true,
+    "dual_stack": false,
+    "log": true,
+    "public": {
+        "cidr": [],
+        "az": [],
+        "dia": false,
+        "vm_debug": false,
+        "rfc1918_routes": false,
+        "vpce_s3": false,
+        "vpce_dynamodb": false
+    },
+    "private": {
+        "cidr": [
+            "10.200.101.0/28",
+            "10.200.101.16/28"
+        ],
+        "az": [
+            "a",
+            "b"
+        ],
+        "role": [
+            "private",
+            "private"
+        ],
+        "dia": false,
+        "vm_debug": true,
+        "vpce_s3": false,
+        "vpce_dynamodb": false
+    },
+    "transit": {
+        "cidr": [
+            "10.200.101.224/28",
+            "10.200.101.240/28"
+        ],
+        "az": [
+            "a",
+            "b"
+        ],
+        "associate": "spoke",
+        "propagate": ["inspect"],
+        "vm_debug": false
+    }
+}

@@ -1,0 +1,152 @@
+{
+    "global_settings": {
+        "route53": {
+            "domain": "mydomain.route53",
+            "hosted_zones": [],
+            "forwarded_zones": [
+                "mydomain.onprem",
+                "10.in-addr.arpa"
+            ],
+            "system_zones": [
+                "100.10.in-addr.arpa",
+                "200.10.in-addr.arpa"
+            ]
+        }
+    },
+    "euw1": {
+        "tags": {},
+        "vpc": {
+            "region": "euw1",
+            "account": "1234567890",
+            "name": "core",
+            "environment": "prd",
+            "release": "001",
+            "cidr": "10.100.3.0/24",
+            "create": true,
+            "dual_stack": true,
+            "log": true,
+            "public": {
+                "cidr": [
+                    "10.100.3.128/28",
+                    "10.100.3.144/28"
+                ],
+                "az": [
+                    "a",
+                    "b"
+                ],
+                "dia": false,
+                "vm_debug": false,
+                "rfc1918_routes": false
+            },
+            "private": {
+                "cidr": [
+                    "10.100.3.0/26",
+                    "10.100.3.64/26"
+                ],
+                "az": [
+                    "a",
+                    "b"
+                ],
+                "dia": false,
+                "vm_debug": false
+            },
+            "transit": {
+                "cidr": [
+                    "10.100.3.160/28",
+                    "10.100.3.176/28"
+                ],
+                "az": [
+                    "a",
+                    "b"
+                ],
+                "associate": "spoke",
+                "propagate": ["inspect"],
+                "vm_debug": false
+            }
+        },
+        "appliance": {
+            "create": true,
+            "ami_filter": {
+                "name": ["Infoblox NIOS 8.6.2 49947 DDI BYOL"]
+            },
+            "instance_type": "i3.large",
+            "user_data": [
+                "#infoblox-config\nremote_console_enabled: y\ndefault_admin_password: admin\ntemp_license: enterprise cloud dns grid nios IB-V825\n",
+                "#infoblox-config\nremote_console_enabled: y\ndefault_admin_password: admin\ntemp_license: enterprise cloud dns grid nios IB-V825\n"
+            ],
+            "ssh_key": "my_key",
+            "az": [
+                "a",
+                "b"
+            ]
+        }
+    },
+    "use1": {
+        "tags": {},
+        "vpc": {
+            "region": "use1",
+            "account": "1234567890",
+            "name": "core",
+            "environment": "prd",
+            "release": "001",
+            "cidr": "10.200.3.0/24",
+            "create": true,
+            "dual_stack": true,
+            "log": true,
+            "public": {
+                "cidr": [
+                    "10.200.3.128/28",
+                    "10.200.3.144/28"
+                ],
+                "az": [
+                    "a",
+                    "b"
+                ],
+                "dia": false,
+                "vm_debug": false,
+                "rfc1918_routes": false
+            },
+            "private": {
+                "cidr": [
+                    "10.200.3.0/26",
+                    "10.200.3.64/26"
+                ],
+                "az": [
+                    "a",
+                    "b"
+                ],
+                "dia": false,
+                "vm_debug": true
+            },
+            "transit": {
+                "cidr": [
+                    "10.200.3.160/28",
+                    "10.200.3.176/28"
+                ],
+                "az": [
+                    "a",
+                    "b"
+                ],
+                "associate": "spoke",
+                "propagate": ["inspect"],
+                "vm_debug": false
+            }
+        },
+        "appliance": {
+            "create": true,
+            "ami_filter": {
+                "name": ["Infoblox NIOS 8.6.2 49947 DDI BYOL"]
+            },
+            "instance_type": "i3.large",
+            "user_data": [
+                "#infoblox-config\nremote_console_enabled: y\ndefault_admin_password: admin\ntemp_license: enterprise cloud dns grid nios IB-V825\n",
+                "#infoblox-config\nremote_console_enabled: y\ndefault_admin_password: admin\ntemp_license: enterprise cloud dns grid nios IB-V825\n"
+            ],
+            "ssh_key": "my_key",
+            "az": [
+                "a",
+                "b"
+            ]
+        }
+    }
+}

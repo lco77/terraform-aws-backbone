@@ -1,0 +1,4 @@
+repository_name = "06_workload_vpcs"
+repository_uri  = "codecommit::eu-west-1://06_workload_vpcs"
+input_file      = ""
+ssm_path        = "/network"

@@ -1,0 +1,4 @@
+repository_name = "03_regional_sdwan_connectivity"
+repository_uri  = "codecommit::eu-west-1://03_regional_sdwan_connectivity"
+input_file      = "assets/input.json"
+ssm_path        = "/network"

@@ -1,0 +1,4 @@
+repository_name = "02_regional_transit_gateways"
+repository_uri  = "codecommit::eu-west-1://02_regional_transit_gateways"
+input_file      = "assets/input.json"
+ssm_path        = "/network"

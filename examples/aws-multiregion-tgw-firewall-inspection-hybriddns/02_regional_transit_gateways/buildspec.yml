@@ -1,0 +1,46 @@
+version: 0.2  
+phases:
+  install:
+    on-failure: ABORT
+    commands:
+      - echo "Commit ID - ${Commit_ID}"
+      # Updates package repositories in image
+      - apt-get -y -qq update
+      # Installs Terraform version specified in CI/CD env variable. To hardcode a specific version, change the wget target.
+      - echo "Installing Terraform..."
+      - wget -q https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip
+      - unzip terraform_${TF_VERSION}_linux_amd64.zip
+      - cp terraform /usr/bin/terraform
+      - echo "Terraform Version:"
+      - terraform --version
+      - aws sts get-caller-identity
+
+  pre_build:
+    on-failure: ABORT
+    commands:
+      # Generate TF files and terraform init
+      - python ./jinja.py
+
+  build:
+    on-failure: ABORT
+    commands:
+      - echo $Phase
+      - |
+        if expr "${Phase}" : "PLAN" >/dev/null;
+        then
+          echo "Launching PLAN..."
+          terraform plan -no-color -out=tfplan;
+          ##terraform plan -destroy;
+        fi
+      - |
+        if expr "${Phase}" : "APPLY" >/dev/null;
+        then
+          echo "Building (APPLY)..."
+          terraform plan -no-color -out=tfplan && terraform apply -no-color -auto-approve=true tfplan;
+          ##terraform destroy -auto-approve=true;
+        fi
+  post_build:
+    on-failure: ABORT
+    commands:
+      - echo "Post build phase..."
+      - rm -rf .terraform terraform terraform_${TF_VERSION}_linux_amd64.zip

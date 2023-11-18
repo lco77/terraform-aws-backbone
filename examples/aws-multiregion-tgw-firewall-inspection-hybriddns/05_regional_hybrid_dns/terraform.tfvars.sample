@@ -1,0 +1,4 @@
+repository_name = "05_regional_hybrid_dns"
+repository_uri  = "codecommit::eu-west-1://05_regional_hybrid_dns"
+input_file      = "assets/input.json"
+ssm_path        = "/network"
